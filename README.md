@@ -26,6 +26,8 @@ The theme should reference these variables whenever needed.
 
 <iframe height=498 width=510 src="http://player.youku.com/embed/XOTEzNjQ3NDA4" frameborder=0 allowfullscreen></iframe>
 
+<embed src="http://player.youku.com/player.php/sid/XOTEzNjQ3NDA4/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+
 ## To-Do
 
 
