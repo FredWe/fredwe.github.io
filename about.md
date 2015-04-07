@@ -7,6 +7,6 @@ description: ""
 
 #关于 本人
 
-![logo](/TouXiang.jpg)
+![logo]({{ site.img_url }}/TouXiang.jpg)
 
-![cv1](/cv_cn.pdf)
+![cv1]({{ site.file_url }}/cv_cn.pdf)

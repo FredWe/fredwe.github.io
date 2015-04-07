@@ -28,10 +28,15 @@ author :
 #
 production_url : http://FredWe.github.io
 
-#The customized path to store images and files inorder to reference later
+#The customized path to store images and files in order to reference later
 #
 img_url : ./assets/images/
 file_url : ./assets/files/
+
+#Customized paginator to divide index into some pages
+#
+paginate:    5
+paginate_path: "page:num"
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
