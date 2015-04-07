@@ -3,7 +3,6 @@ layout: page
 title: Hello World!
 tagline: Supporting tagline
 ---
-{% include JB/setup %}
 
 Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
 
@@ -23,24 +22,14 @@ In `_config.yml` remember to specify your own data:
 
 The theme should reference these variables whenever needed.
     
-## Sample Posts
+## Enable youku video in this README
 
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
+<iframe height=498 width=510 src="http://player.youku.com/embed/XOTEzNjQ3NDA4" frameborder=0 allowfullscreen></iframe>
 
-    $ rm -rf _posts/core-samples
-
-Here's a sample "posts list".
-
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+<embed src="http://player.youku.com/player.php/sid/XOTEzNjQ3NDA4/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
 
 ## To-Do
 
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
+
 
 
