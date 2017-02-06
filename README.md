@@ -1,35 +1,20 @@
----
-layout: page
-title: Hello World!
-tagline: Supporting tagline
----
+# [openblog](https://mateogianolio.github.io/openblog)
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+> Open, free blogging on **Github pages** with **Github issues.**
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+### Quick setup
 
-## Update Author Attributes
+1. Fork [this repository](https://github.com/mateogianolio/openblog).
+2. Create a Github personal access token with **no scope**.
+3. Open `js/globals.js` and change `USERNAME` to your username and `TOKEN` to the token you just created.
 
-In `_config.yml` remember to specify your own data:
-    
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
+Link to individual posts by appending `?<issue_number>` to `index.html`.
 
-The theme should reference these variables whenever needed.
-    
-## Enable youku video in this README
+### Live examples
 
-<iframe height=498 width=510 src="http://player.youku.com/embed/XOTEzNjQ3NDA4" frameborder=0 allowfullscreen></iframe>
+* **https://casualjavascript.com**
 
-<embed src="http://player.youku.com/player.php/sid/XOTEzNjQ3NDA4/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+### Styling
 
-## To-Do
-
-
-
-
+* `css/structure.css` regulates the structure of the website,
+* `css/typography.css` regulates the typography.
