@@ -2,35 +2,62 @@
 
 <html>
   <head>
-    <title>Open blog</title>
-
+    <title>Index Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" type="text/css" href="css/structure.css">
-    <link rel="stylesheet" type="text/css" href="css/typography.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Serif">
-
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <script src="js/lib/github.bundle.min.js"></script>
-    <script src="js/lib/marked.min.js"></script>
-
-    <script src="js/globals.js"></script>
-    <script src="js/node.js"></script>
-    <script src="js/blog.js"></script>
+    <style>
+      pre{
+        white-space: pre-wrap;
+      }
+    </style>
   </head>
   <body>
     <div class="header">
       <h1 class="title">
-        <a href="index.html"><strong>openblog</strong></a>
+        <a href="index.html"><strong>Home Page</strong></a>
       </h1>
       <p class="description">
-        Open, free blogging on <strong>Github pages</strong> with <strong>Github issues</strong>.
+        Free & Fast blogging with <strong>Github issues</strong>.
       </p>
     </div>
-    <div class="posts">
-      <div class="loading">
-        Loading...
-      </div>
+    <ul class="posts"></ul>
+    <div id="loading">
+      Loading...
     </div>
   </body>
+  <script>
+    var createPost = function (item) {
+      var li = document.createElement('li')
+      var pre = document.createElement('pre')
+      var title = document.createElement('h2')
+      pre.textContent = item.body
+      title.textContent = item.title
+      li.appendChild(title)
+      li.appendChild(pre)
+      return li
+    }
+    var chargeData = function (arr) {
+      var posts = document.body.querySelector('.posts')
+      arr.forEach(function (it) {
+        posts.appendChild(createPost(it))
+      })
+      var loading = document.getElementById('loading')
+      if (loading.parentNode) {
+        loading.parentNode.removeChild(loading)
+      }
+    }
+    var showPosts = function (conf) {
+      return window.fetch(`https://api.github.com/repos/${conf.user}/${conf.repo}/issues`)
+      .then(function (response) {
+        // Convert to JSON
+        return response.json()
+      })
+    }
+    var loadConfig = window.fetch('config.json')
+    .then(function (response) {
+      // Convert to JSON
+      return response.json()
+    })
+
+    loadConfig.then(showPosts).then(chargeData)
+  </script>
 </html>
