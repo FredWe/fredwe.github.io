@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>Index Page</title>
+    <title>Blogiss - Blogified GitHub Issues</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       pre{
@@ -13,7 +13,7 @@
   <body>
     <div class="header">
       <h1 class="title">
-        <a href="index.html"><strong>Home Page</strong></a>
+        <a href="index.html"><strong>Blogiss Homepage</strong></a>
       </h1>
       <p class="description">
         Free & Fast blogging with <strong>Github issues</strong>.
@@ -29,13 +29,13 @@
       var li = document.createElement('li')
       var pre = document.createElement('pre')
       var title = document.createElement('h2')
-      pre.textContent = item.body
+      pre.innerHTML = item.body.replace(/!\[.*?\]\s*?\(\s*?(\S+?)\)/g, (whole, url) => `<img src="${url}"/>`)
       title.textContent = item.title
       li.appendChild(title)
       li.appendChild(pre)
       return li
     }
-    var chargeData = function (arr) {
+    var showPosts = function (arr) {
       var posts = document.body.querySelector('.posts')
       arr.forEach(function (it) {
         posts.appendChild(createPost(it))
@@ -45,19 +45,21 @@
         loading.parentNode.removeChild(loading)
       }
     }
-    var showPosts = function (conf) {
-      return window.fetch(`https://api.github.com/repos/${conf.user}/${conf.repo}/issues`)
+    var getIssues = function (conf) {
+      return window.fetch(`https://api.github.com/repos/${conf['USER']}/${conf['REPO']}/issues`)
       .then(function (response) {
-        // Convert to JSON
         return response.json()
+      }).then(function (issues) {
+        issues = issues.filter(item => item.user.login === conf['USER'])
+        showPosts(issues)
       })
     }
     var loadConfig = window.fetch('config.json')
-    .then(function (response) {
+    .then(function (confRes) {
       // Convert to JSON
-      return response.json()
+      return confRes.json()
     })
 
-    loadConfig.then(showPosts).then(chargeData)
+    loadConfig.then(getIssues)
   </script>
 </html>
