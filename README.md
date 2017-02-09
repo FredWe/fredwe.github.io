@@ -1,6 +1,4 @@
-# [fredwe.github.io](https://fredwe.github.io)
-
-> Another blog with [*Github issues*](https://github.com/FredWe/issue-blog/issues) using [**Blogiss**](https://github.com/FredWe/blogiss)
+Another blog with [*Github issues*](https://github.com/FredWe/issue-blog/issues) using [**Blogiss**](https://github.com/FredWe/blogiss)
 
 ### Have a look
 
