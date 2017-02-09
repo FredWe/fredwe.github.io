@@ -50,7 +50,7 @@
       .then(function (response) {
         return response.json()
       }).then(function (issues) {
-        issues = issues.filter(item => item.user.login === conf['USER'])
+        issues = issues.filter(item => item.user.login.toLowerCase() === conf['USER'].toLowerCase())
         showPosts(issues)
       })
     }
